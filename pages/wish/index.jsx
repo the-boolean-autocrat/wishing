@@ -2,7 +2,7 @@ import styles from '../../styles/wish.module.css';
 import Image from 'next/image';
 import Confetti from 'react-confetti';
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head'
 
 const Wish = () => {
@@ -26,7 +26,15 @@ const Wish = () => {
         },
     };
 
-    const {innerHeight: height, innerWidth: width} = window
+    let height = 0;
+    let width = 0;
+
+    useEffect(() => {
+        const {innerHeight, innerWidth} = window
+        height = 0;
+        width = 0;
+    }, [])
+
     const [modalOpen, setModalOpen] = useState(false);
 
     return (
